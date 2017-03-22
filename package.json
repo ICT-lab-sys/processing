@@ -1,0 +1,23 @@
+{
+  "name": "ictlabprocessing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICT-lab-sys/processing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ICT-lab-sys/processing/issues"
+  },
+  "homepage": "https://github.com/ICT-lab-sys/processing#readme",
+  "dependencies": {
+    "client-http": "0.0.7",
+    "moment": "^2.18.1"
+  }
+}
