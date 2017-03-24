@@ -20,14 +20,14 @@ function getData () {
 
        // console.log(processedData);
 
-        if(JSON.stringify(oldData) != JSON.stringify(processedData)) {
-            var test = oldData
-            oldData = processedData;
-            console.log(JSON.stringify(oldData) + "  ," + JSON.stringify(processedData))
+        if(JSON.stringify(oldData) != JSON.stringify(json)) {
+           // var test = oldData
+            oldData = json;
+            console.log(JSON.stringify(oldData) + "  ," + JSON.stringify(json))
             MongoClient.connect('mongodb://localhost:27017/ictlab', function (err, db) {
                 if (err) throw err
 
-                db.collection('temp').insertOne(test)
+                db.collection('temp').insertOne(processedData)
             })
         }
     });
