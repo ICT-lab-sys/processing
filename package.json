@@ -18,6 +18,8 @@
   "homepage": "https://github.com/ICT-lab-sys/processing#readme",
   "dependencies": {
     "client-http": "0.0.7",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.2.25"
   }
 }
