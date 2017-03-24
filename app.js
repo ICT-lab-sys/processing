@@ -5,6 +5,7 @@
 var http = require('client-http');
 var moment = require('moment')
 var MongoClient = require('mongodb').MongoClient
+var oldData = "dfsd"
 
 var timer = setInterval(getData, 1000);
 
@@ -17,13 +18,17 @@ function getData () {
         var hours = new Date(json.DateTime).getHours()
         var processedData = JSON.parse('{"Jaar":'+year+', "Maand":'+month+', "Dag":'+day+', "Uur":'+hours+', "Temperatuur":'+json.Temperature+'}')
 
-        console.log(processedData);
+       // console.log(processedData);
 
-        MongoClient.connect('mongodb://localhost:27017/ictlab', function (err, db) {
-            if (err) throw err
+        if(JSON.stringify(oldData) != JSON.stringify(processedData)) {
+            var test = oldData
+            oldData = processedData;
+            console.log(JSON.stringify(oldData) + "  ," + JSON.stringify(processedData))
+            MongoClient.connect('mongodb://localhost:27017/ictlab', function (err, db) {
+                if (err) throw err
 
-            db.collection('temp').insertOne(processedData)
-        })
-
+                db.collection('temp').insertOne(test)
+            })
+        }
     });
 }
