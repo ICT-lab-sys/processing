@@ -10,13 +10,13 @@ var oldData = "dfsd"
 var timer = setInterval(getData, 1000);
 
 function getData () {
-    http.get("http://localhost:3001/api/temp", function(data){
+    http.get("http://localhost:3001/api/streamdata/temp", function(data){
         var json = JSON.parse(data)
         var day = new Date(json.DateTime).getDate()
         var month = new Date(json.DateTime).getMonth()+1
         var year = new Date(json.DateTime).getFullYear()
         var hours = new Date(json.DateTime).getHours()
-        var processedData = JSON.parse('{"Jaar":'+year+', "Maand":'+month+', "Dag":'+day+', "Uur":'+hours+', "Temperatuur":'+json.Temperature+'}')
+        var processedData = JSON.parse('{"Dag":'+day+', "Maand":'+month+', "Jaar":'+year+', "Uur":'+hours+', "Temperatuur":'+json.Temperature+'}')
 
        // console.log(processedData);
 
